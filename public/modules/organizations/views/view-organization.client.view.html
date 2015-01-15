@@ -1,0 +1,39 @@
+<section data-ng-controller="OrganizationsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="organization.name"></h1>
+        <table class="table table-hover">
+            <tr>
+                <td><span>Owner</span></td><td><span data-ng-bind="organization.owner.displayName"></span></td>
+            </tr>
+            <tr>
+                <td><span>Total People</span></td><td><span data-ng-bind="organization.totalPeople"></span></td>
+            </tr>
+            <tr>
+                <td> <span>Billable People</span></td><td><span data-ng-bind="organization.billablePeople"></span></td>
+            </tr>
+            <tr>
+                <td><span>Bench People</span></td><td><span data-ng-bind="organization.benchPeople"></span></td>
+            </tr>
+            <tr>
+                <td><span>Open Positions</span></td><td><span data-ng-bind="organization.openPositions"></span></td>
+            </tr>
+
+        </table>
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == organization.user._id))">
+		<a class="btn btn-primary" href="/#!/organizations/{{organization._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="organization.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="organization.user.displayName"></span>
+		</em>
+	</small>
+</section>

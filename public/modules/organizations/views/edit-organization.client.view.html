@@ -1,0 +1,44 @@
+<section data-ng-controller="OrganizationsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Organization</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="organization.name" id="name" class="form-control" placeholder="Name" required>
+                    </div>
+                    <label class="control-label" for="owner">Chose Owner</label>
+                    <div class="controls">
+                        <select data-ng-model="organization.owner" id="owner" class="form-control" ng-options="item.displayName for item in users track by item.value">
+                        </select>
+                    </div>
+                    <label class="control-label" for="name">Total Number of People</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="organization.totalPeople" id="totalPeople" class="form-control" placeholder="Enter Total Number of People in the Organization" required>
+                    </div>
+                    <label class="control-label" for="name">Billable Number of People</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="organization.billablePeople" id="billablePeople" class="form-control" placeholder="Enter Billable Number of People in the Organization" required>
+                    </div>
+                    <label class="control-label" for="name">Bench Number of People</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="organization.benchPeople" id="benchPeople" class="form-control" placeholder="Enter Bench Number of People in the Organization" required>
+                    </div>
+                    <label class="control-label" for="name">Open Positions</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="organization.openPositions" id="openPositions" class="form-control" placeholder="Enter Open Positions in the Organization" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>
